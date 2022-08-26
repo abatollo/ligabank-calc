@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: 
+    local('Roboto'),
+    url('../../fonts/roboto-v27-cyrillic-regular.woff2') format('woff2'),
+    url('../../fonts/roboto-v27-cyrillic-regular.woff') format('woff');
+  unicode-range: U+0400-04FF;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: 
+    local('Roboto'),
+    url('../../fonts/roboto-v27-cyrillic-500.woff2') format('woff2'),
+    url('../../fonts/roboto-v27-cyrillic-500.woff') format('woff');
+  unicode-range: U+2160-2188, U+0400-04FF;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: 
+    local('Roboto'),
+    url('../../fonts/roboto-v27-cyrillic-700.woff2') format('woff2'),
+    url('../../fonts/roboto-v27-cyrillic-700.woff') format('woff');
+  unicode-range: U+0400-04FF;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: 
+    local('Roboto'),
+    url('../../fonts/roboto-v27-latin-regular.woff2') format('woff2'),
+    url('../../fonts/roboto-v27-latin-regular.woff') format('woff');
+  unicode-range: U+000-5FF;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: 
+    local('Roboto'),
+    url('../../fonts/roboto-v30-latin-500.woff2') format('woff2'),
+    url('../../fonts/roboto-v30-latin-500.woff') format('woff');
+  unicode-range: U+000-5FF;
+}

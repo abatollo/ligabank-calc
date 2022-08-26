@@ -1,0 +1,15 @@
+@import "global/normalize.scss";
+@import "global/body.scss";
+@import "global/fonts.scss";
+@import "global/variables.scss";
+@import "global/mixins.scss";
+@import "global/visually-hidden.scss";
+
+@import "../components/header/header.scss";
+@import "../components/main/main.scss";
+@import "../components/slider/slider.scss";
+@import "../components/tabs/tabs.scss";
+@import "../components/calc/calc.scss";
+@import "../components/map/map.scss";
+@import "../components/popup/popup.scss";
+@import "../components/footer/footer.scss";
