@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { keyCodes } from '../../const/key-codes';
 
@@ -26,7 +27,7 @@ const Popup = ({ isPopupOpened, onIsPopupOpenedChange }) => {
 
   const handlePopupTabOrShiftAndTabKeydown = (evt) => {
     if (evt.keyCode === keyCodes.TAB) {
-      const focusablePopupElements = refPopup.current.querySelectorAll(`a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select`);
+      const focusablePopupElements = refPopup.current.querySelectorAll(`a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], input[type="submit"], select`);
 
       const firstElement = focusablePopupElements[0];
       const lastElement = focusablePopupElements[focusablePopupElements.length - 1];
@@ -74,7 +75,7 @@ const Popup = ({ isPopupOpened, onIsPopupOpenedChange }) => {
 
   useEffect(() => {
     if (refPopup.current) {
-      const focusablePopupElement = refPopup.current.querySelector(`a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select`);
+      const focusablePopupElement = refPopup.current.querySelector(`a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], input[type="submit"], select`);
       focusablePopupElement.focus();
     }
   }, [isPopupOpened]);
@@ -125,6 +126,11 @@ const Popup = ({ isPopupOpened, onIsPopupOpenedChange }) => {
       </div>
     </section>
   );
+};
+
+Popup.propTypes = {
+  isPopupOpened: PropTypes.bool.isRequired,
+  onIsPopupOpenedChange: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {

@@ -4,28 +4,35 @@ import PropTypes from 'prop-types';
 import Slider from '../slider/slider';
 import Tabs from '../tabs/tabs';
 import Calc from '../calc/calc';
-import Map from '../map/map';
+import Location from '../location/location';
 import Popup from '../popup/popup';
+import Thanks from '../thanks/thanks';
 
-const Main = ({ isPopupOpened }) => {
+const Main = ({ 
+  isPopupOpened,
+  isThanksOpened
+}) => {
   return (
     <main>
       <Slider />
       <Tabs />
       <Calc />
-      <Map />
+      <Location />
       {isPopupOpened && <Popup />}
+      {isThanksOpened && <Thanks />}
     </main>
   );
 };
 
 Main.propTypes = {
-  isPopupOpened: PropTypes.bool.isRequired
+  isPopupOpened: PropTypes.bool.isRequired,
+  isThanksOpened: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state) => {
   return {
-    isPopupOpened: state.isPopupOpened
+    isPopupOpened: state.isPopupOpened,
+    isThanksOpened: state.isThanksOpened
   };
 };
 

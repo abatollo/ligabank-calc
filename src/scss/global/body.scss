@@ -15,13 +15,23 @@ button {
 }
 
 a:hover,
-button:hover {
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
   opacity: 0.8;
 }
 
 a:active,
-button:active {
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active {
   opacity: 0.5;
+}
+
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+button:disabled {
+  opacity: 0.3;
 }
 
 img {

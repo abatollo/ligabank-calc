@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {ActionCreator} from '../../store/action';
+import { ActionCreator } from '../../store/action';
 
 const Tabs = ({ currentTab, onCurrentTabSet }) => {
   return (

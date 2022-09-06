@@ -1,10 +1,13 @@
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { ActionCreator } from '../../store/action';
 
 import logo from '../../img/logo.svg';
 
-const Header = ({ onIsPopupOpenedChange }) => {
+const Header = ({ 
+  onIsPopupOpenedChange 
+}) => {
   const onHeaderMenuLinkLoginClick = (evt) => {
     evt.preventDefault(); 
     onIsPopupOpenedChange(true);
@@ -51,6 +54,10 @@ const Header = ({ onIsPopupOpenedChange }) => {
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  onIsPopupOpenedChange: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({

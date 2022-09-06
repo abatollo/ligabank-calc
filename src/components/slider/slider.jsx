@@ -1,8 +1,23 @@
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { ActionCreator } from '../../store/action';
 
-const Slider = ({ currentSlide, onCurrentSlideSet }) => {
+const Slider = ({ 
+  currentSlide, 
+  onCurrentSlideSet 
+}) => {
+  useEffect(() => {
+    setTimeout(() => {
+      if (currentSlide < 3) {
+        onCurrentSlideSet(currentSlide + 1);
+      } else {
+        onCurrentSlideSet(1);
+      }
+    }, 4000);
+  });
+
   return (
     <section className="slider">
       <h2 className="visually-hidden">Услуги</h2>
@@ -11,7 +26,7 @@ const Slider = ({ currentSlide, onCurrentSlideSet }) => {
           <div className="container center">
             <h2 className="slider__heading">Лига Банк</h2>
             <h3 className="slider__subheading">Кредиты на любой случай</h3>
-            <a className="slider__link" href="/credit-calculator">Рассчитать кредит</a>
+            <a className="slider__link" href="#credit-calculator">Рассчитать кредит</a>
           </div>
         </div>
       }
@@ -20,7 +35,6 @@ const Slider = ({ currentSlide, onCurrentSlideSet }) => {
           <div className="container center">
             <h2 className="slider__heading">Лига Банк</h2>
             <h3 className="slider__subheading">Ваша уверенность в завтрашнем дне</h3>
-            {/* <a className="slider__link" href="/credit-calculator">Рассчитать кредит</a> */}
           </div>
         </div>
       }
@@ -29,7 +43,7 @@ const Slider = ({ currentSlide, onCurrentSlideSet }) => {
           <div className="container center">
             <h2 className="slider__heading">Лига Банк</h2>
             <h3 className="slider__subheading">Всегда рядом</h3>
-            <a className="slider__link" href="/credit-calculator">Рассчитать кредит</a>
+            <a className="slider__link" href="#location">Найти отделения</a>
           </div>
         </div>
       }
@@ -55,6 +69,11 @@ const Slider = ({ currentSlide, onCurrentSlideSet }) => {
       </ul>
     </section>
   );
+};
+
+Slider.propTypes = {
+  currentSlide: PropTypes.number.isRequired,
+  onCurrentSlideSet: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
