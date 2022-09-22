@@ -1,5 +1,5 @@
 .header {
-  background-color: #F6F7FF;
+  background-color: $background-color;
 }
 
 .header__navigation {
@@ -8,6 +8,72 @@
   align-items: center;  
   padding-top: 6px;
   padding-bottom: 6px;
+}
+
+@media (max-width: $tablet-width) {
+  .header__navigation {
+    display: grid;
+    align-content: start;
+    grid-template-columns: min-content 1fr min-content;
+  }
+}
+
+.header__button-open {
+  display: none;
+
+  margin-right: 9px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  width: 21px;
+  height: 26px;
+
+  font-size: 0;
+
+  background-image: url('../../img/icon-menu-open.svg');
+  background-repeat: no-repeat;
+  background-position: left center;
+
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+@media (max-width: $tablet-width) {
+  .header__button-open {
+    display: initial;
+  }
+}
+
+.header__button-close {
+  display: none;
+
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  width: 16px;
+  height: 36px;
+
+  font-size: 0;
+
+  background-image: url('../../img/icon-close-small.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+@media (max-width: $tablet-width) {
+  .header__button-close {
+    display: initial;
+  }
 }
 
 .header__logo-link {
@@ -23,9 +89,36 @@
   text-decoration: none;
 }
 
+@media (max-width: $tablet-width) {
+  .header__logo-link {
+    justify-content: initial;
+
+    margin-left: 4px;
+    margin-bottom: 5px;
+    margin-right: 4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
 .header__logo-image {
   padding-right: 10px;
   padding-bottom: 10px;
+  width: auto;
+}
+
+@media (max-width: $desktop-width) {
+  .header__logo-image {
+    height: 24px;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .header__logo-image {
+    height: 18px;
+  }
 }
 
 .header__logo-text {
@@ -41,12 +134,38 @@
   justify-content: center;
   margin: 0;
   padding: 10px;
-
   list-style: none;
+}
+
+@media (max-width: $tablet-width) {
+  .header__menu {
+    display: none;
+    grid-column: span 3;
+    flex-direction: column;
+
+    margin-top: 35px;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+}
+
+.header__menu--opened {
+  display: initial;
+
+  min-height: 100vh;
 }
 
 .header__menu-item {
   padding: 10px;
+}
+
+@media (max-width: $tablet-width) {
+  .header__menu-item {
+    width: 100%;
+
+    border-top: 1px solid $border-color;
+  }
 }
 
 .header__menu-link {
@@ -64,25 +183,68 @@
   color: #1F1E25;
 }
 
-.header__menu-link--active {
-  color: #2C36F2;
+@media (max-width: $desktop-width) {
+  .header__menu-link {
+    font-size: 14px;
+
+    justify-content: initial;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .header__menu-link {
+    font-size: 16px;
+  }
 }
 
 .header__menu-link--login {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
   margin-left: 20px;
   padding-top: 10px;
   padding-right: 0;
   padding-bottom: 10px;
-  padding-left: 40px;
-  background-image: url('../../img/login-icon.svg');
+  padding-left: 24px;
+
+  background-image: url('../../img/icon-login.svg');
   background-repeat: no-repeat;
   background-position: left 10px center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: $desktop-width) {
   .header__menu-link--login {
     font-size: 0;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .header__menu-link--login {
+    width: 20px;
+    height: 22px;
+
+    background-image: url('../../img/icon-login-small.svg');
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .header__menu-link--menu-opened {
+    grid-column: span 3;
+
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    width: 100%;
+
+    font-size: initial;
+
+    background-image: url('../../img/icon-login.svg');
+
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
   }
 }

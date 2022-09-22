@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  min-width: 1366px;
 
   font-family: 'Roboto', 'Arial', sans-serif;
 }
@@ -43,6 +42,20 @@ img {
   padding-left: 98px;
   padding-right: 98px;
   max-width: 1366px;
+}
+
+@media (max-width: $desktop-width) {
+  .container {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 .center {
