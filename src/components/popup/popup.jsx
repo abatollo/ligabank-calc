@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -42,9 +42,9 @@ const Popup = ({ isPopupOpened, onIsPopupOpenedChange }) => {
     }
   };
 
-  const handlePopupEscapeKeydown = () => {
+  const handlePopupEscapeKeydown = useCallback(() => {
     onIsPopupOpenedChange(false);
-  };
+  }, [onIsPopupOpenedChange]);
 
   const handlePopupPasswordClick = (evt) => {
     evt.preventDefault();
@@ -55,23 +55,24 @@ const Popup = ({ isPopupOpened, onIsPopupOpenedChange }) => {
     }
   };
 
-  const keydownHandlers = new Map([
+  const keydownHandlers = useMemo(() => new Map([
     [keyCodes.ESCAPE, handlePopupEscapeKeydown], 
     [keyCodes.TAB, handlePopupTabOrShiftAndTabKeydown]
-  ]);
+  ]), [handlePopupEscapeKeydown]);
 
-  const handlePopupKeydown = (evt) => {
+  const handlePopupKeydown = useCallback((evt) => {
     const handlePopupKeydownProper = keydownHandlers.get(evt.keyCode);
 
     if (handlePopupKeydownProper) {
       handlePopupKeydownProper(evt);
     }
-  };
+  }, [keydownHandlers]);
 
   useEffect(() => {
+    console.log(123);
     document.addEventListener(`keydown`, handlePopupKeydown);
     return () => { document.removeEventListener(`keydown`, handlePopupKeydown) };
-  });
+  }, [handlePopupKeydown]);
 
   useEffect(() => {
     if (refPopup.current) {
