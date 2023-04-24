@@ -69,7 +69,6 @@ const Popup = ({ isPopupOpened, onIsPopupOpenedChange }) => {
   }, [keydownHandlers]);
 
   useEffect(() => {
-    console.log(123);
     document.addEventListener(`keydown`, handlePopupKeydown);
     return () => { document.removeEventListener(`keydown`, handlePopupKeydown) };
   }, [handlePopupKeydown]);
