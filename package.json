@@ -1,6 +1,6 @@
 {
   "name": "ligabank-calc",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": true,
   "dependencies": {
     "@pbe/react-yandex-maps": "^1.2.4",
